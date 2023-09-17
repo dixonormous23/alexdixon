@@ -1,3 +1,4 @@
+import { breakpoint } from "@/styles/utils";
 import styled from "styled-components";
 
 export const HeroSectionWrapper = styled.div`
@@ -27,5 +28,12 @@ export const HeroTextWrapper = styled.div`
 
     strong {
         border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
+    }
+
+    ${breakpoint('mobile')} {
+        h1 {
+            font-size: 2.7rem;
+            margin-bottom: 2rem;
+        }
     }
 `;
