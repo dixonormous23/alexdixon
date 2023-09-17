@@ -7,7 +7,7 @@ const blinkAnimation = keyframes`
 
 export const StyledTypewriterText = styled.span`
     opacity: 0.6;
-    max-width: 40%;
+    max-width: 50%;
     min-height: 200px;
     line-height: 3rem;
 

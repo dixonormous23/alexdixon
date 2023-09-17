@@ -7,9 +7,9 @@ interface TypewriterTextProps {
     delay?: number;
 }
 
-export const TypewriterText = ({ text, delay = 75 }: TypewriterTextProps): React.ReactElement => {
+export const TypewriterText = ({ text, delay = 50 }: TypewriterTextProps): React.ReactElement => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
-    const [textToRender, setTextToRender] = useState<string>('')
+    const [textToRender, setTextToRender] = useState<string>('');
 
     useEffect(() => {
         if (text === undefined) return;
@@ -21,7 +21,7 @@ export const TypewriterText = ({ text, delay = 75 }: TypewriterTextProps): React
             }
         }, delay);
 
-        return () => clearInterval(textInterval)
+        return () => clearInterval(textInterval);
     }, [currentIndex, text, delay, textToRender]);
 
     return <StyledTypewriterText>{textToRender}<small>|</small></StyledTypewriterText>;
