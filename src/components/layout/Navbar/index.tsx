@@ -1,11 +1,23 @@
-import styled from 'styled-components';
+import { NavContainer, NavInnerContainer } from "./styles";
+
+interface NavItemInterface {
+    label: string;
+    anchor: string;
+}
+
+const navItems: NavItemInterface[] = [
+    {
+        label: 'Home',
+        anchor: 'home'
+    },
+]
 
 export const Navbar = (): React.ReactElement => {
     return (
-        <nav>
-            <div>
+        <NavContainer>
+            <NavInnerContainer>
                 <p>Navbar</p>
-            </div>
-        </nav>
+            </NavInnerContainer>
+        </NavContainer>
     )
 }
