@@ -4,9 +4,10 @@ import { StyledTypewriterText } from './styles';
 
 interface TypewriterTextProps {
     text: string;
+    delay?: number;
 }
 
-export const TypewriterText = ({ text }: TypewriterTextProps): React.ReactElement => {
+export const TypewriterText = ({ text, delay = 75 }: TypewriterTextProps): React.ReactElement => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [textToRender, setTextToRender] = useState<string>('')
 
@@ -18,10 +19,10 @@ export const TypewriterText = ({ text }: TypewriterTextProps): React.ReactElemen
                 setTextToRender((prevText) => prevText + text[currentIndex]);
                 setCurrentIndex((prevIndex) => prevIndex + 1);
             }
-        }, 50);
+        }, delay);
 
         return () => clearInterval(textInterval)
-    }, [currentIndex, text, textToRender]);
+    }, [currentIndex, text, delay, textToRender]);
 
     return <StyledTypewriterText>{textToRender}<small>|</small></StyledTypewriterText>;
 };

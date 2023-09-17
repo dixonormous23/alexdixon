@@ -9,6 +9,7 @@ export const StyledTypewriterText = styled.span`
     opacity: 0.6;
     max-width: 40%;
     min-height: 200px;
+    line-height: 3rem;
 
     small {
         animation: ${blinkAnimation} 1s linear infinite;

@@ -3,8 +3,8 @@ import { HeroSectionWrapper, HeroInnerWrapper, HeroTextWrapper } from './styles'
 import { TypewriterText } from '@/components/common/TypewriterText';
 
 const typewriterText = [
-    "Professional and enthusiastic software engineer.",
-    "Software engineer with over 7 years experience.",
+    "Professional and enthusiastic software engineer, providing expertise in ReactJS, NextJS and more.",
+    "Software engineer with over 7 years experience, offering expertise in ReactJS, NextJS and more.",
     "Building beautiful websites starts with a <div> and end with <Dixon />.",
 ];
 
