@@ -5,8 +5,7 @@ import { TypewriterText } from '@/components/common/TypewriterText';
 const typewriterText = [
     "Professional and enthusiastic software engineer.",
     "Software engineer with over 7 years experience.",
-    "Just a programmer trying to live his best life as a Dad.",
-    "Building beautiful websites starts with a <div>.",
+    "Building beautiful websites starts with a <div> and end with <Dixon />.",
 ];
 
 const buildTypewriterText = (): string => {
