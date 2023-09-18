@@ -5,12 +5,12 @@ const blinkAnimation = keyframes`
     50% { opacity: 0 };
 `;
 
-export const StyledTypewriterText = styled.span`
+export const StyledTypewriterText = styled.span<{ $height: number }>`
     opacity: 0.6;
     max-width: 50%;
-    min-height: 200px;
     line-height: 3rem;
     font-size: 2rem;
+    min-height: ${(props) => props.$height}px;
 
     small {
         animation: ${blinkAnimation} 1s linear infinite;

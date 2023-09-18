@@ -1,4 +1,13 @@
+import { breakpoint } from "@/styles/utils";
 import styled from "styled-components";
+
+const DownloadButtonWrapper = styled.div`
+    padding: 2rem 0;
+
+    ${breakpoint('mobile')} {
+        padding: 1rem 0;
+    }
+`;
 
 const StyledDownloadButton = styled.a`
     width: fit-content;
@@ -17,8 +26,10 @@ const StyledDownloadButton = styled.a`
 
 export const DownloadResumeButton = (): React.ReactElement => {
     return (
-        <StyledDownloadButton download href={'/AlexDixon_Resume.pdf'}>
-            Download CSV
-        </StyledDownloadButton>
+        <DownloadButtonWrapper>
+            <StyledDownloadButton download href={'/AlexDixon_Resume.pdf'}>
+                Download CSV
+            </StyledDownloadButton>
+        </DownloadButtonWrapper>
     );
 };

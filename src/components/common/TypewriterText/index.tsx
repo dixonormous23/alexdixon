@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 
 import { StyledTypewriterText } from './styles';
 
@@ -26,5 +26,8 @@ export const TypewriterText = ({ text, delay = 35 }: TypewriterTextProps): React
         return () => clearInterval(typeInterval);
     }, [currentIndex, text, delay, textToRender]);
 
-    return <StyledTypewriterText>{textToRender}<small>|</small></StyledTypewriterText>;
+    // Make the container height dynamic on text length
+    const textHeight = useMemo(() => Math.floor(text?.length * 1.6), [text]);
+
+    return <StyledTypewriterText $height={textHeight}>{textToRender}<small>|</small></StyledTypewriterText>;
 };
