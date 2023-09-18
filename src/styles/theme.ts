@@ -7,7 +7,8 @@ export const theme = {
         primaryFaded: 'rgba(51, 153, 255, 0.5)'
     },
     breakpoints: {
-        mobile: '850px'
+        mobile: '700px',
+        tablet: '850px'
     },
     widths: {
         contentMaxWidth: '1350px'

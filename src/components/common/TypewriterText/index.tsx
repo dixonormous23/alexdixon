@@ -8,11 +8,18 @@ interface TypewriterTextProps {
 }
 
 export const TypewriterText = ({ text, delay = 35 }: TypewriterTextProps): React.ReactElement => {
+    const [canType, setCanType] = useState<boolean>(false);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [textToRender, setTextToRender] = useState<string>('');
 
+    useEffect(() => {
+        setTimeout(() => {
+            setCanType(true);
+        }, 1000);
+    }, []);
+
     useEffect(() => {  
-        if (text === undefined) return;
+        if (text === undefined || !canType) return;
         
         let typeInterval: NodeJS.Timeout;
     
@@ -24,7 +31,7 @@ export const TypewriterText = ({ text, delay = 35 }: TypewriterTextProps): React
         }
 
         return () => clearInterval(typeInterval);
-    }, [currentIndex, text, delay, textToRender]);
+    }, [text, delay, textToRender, currentIndex, canType]);
 
     // Make the container height dynamic on text length
     const textHeight = useMemo(() => Math.floor(text?.length * 1.6), [text]);

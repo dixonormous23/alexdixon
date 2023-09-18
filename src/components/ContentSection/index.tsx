@@ -8,9 +8,13 @@ const StyledContentSection = styled.section`
     max-width: ${({ theme }) => theme.widths.contentMaxWidth};
 `;
 
-export const ContentSection: React.FC<ProviderProps> = ({ children }) => {
+interface ContentSectionProps extends ProviderProps {
+    anchorId: string;
+}
+
+export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchorId }) => {
     return (
-        <StyledContentSection>
+        <StyledContentSection id={anchorId}>
             {children}
         </StyledContentSection>
     );

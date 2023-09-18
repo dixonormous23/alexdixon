@@ -20,5 +20,6 @@ export const StyledTypewriterText = styled.span<{ $height: number }>`
     ${breakpoint('mobile')} {
         max-width: unset;
         font-size: 1.4rem !important;
+        min-height: 250px;
     }
 `;

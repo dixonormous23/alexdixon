@@ -22,18 +22,18 @@ const buildTypewriterText = (): string => {
 
 export const HeroSection = (): React.ReactElement => {
     return (
-        <ContentSection>
+        <ContentSection anchorId='home'>
             <HeroSectionWrapper>
                 <HeroInnerWrapper>
                     <HeroGreeting>Hey there! 👋</HeroGreeting>
                     <HeroTextWrapper>
                         <h1>I&apos;m <strong>Alex Dixon</strong></h1>
-                        <TypewriterText text={buildTypewriterText()} />
-                        <CallToActionWrapper>
-                            <SocialLinks />
-                            <DownloadResumeButton />
-                        </CallToActionWrapper>
                     </HeroTextWrapper>
+                    <TypewriterText text={buildTypewriterText()} />
+                    <CallToActionWrapper>
+                        <SocialLinks />
+                        <DownloadResumeButton />
+                    </CallToActionWrapper>
                 </HeroInnerWrapper>
             </HeroSectionWrapper>
         </ContentSection>
