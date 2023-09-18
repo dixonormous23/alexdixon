@@ -2,9 +2,14 @@ export type MainTheme = typeof theme;
 
 export const theme = {
     colors: {
-        primary: '#3399FF'
+        text: '#f0f0f0',
+        primary: '#3399FF',
+        primaryFaded: 'rgba(51, 153, 255, 0.5)'
     },
     breakpoints: {
         mobile: '850px'
+    },
+    widths: {
+        contentMaxWidth: '1350px'
     }
 }

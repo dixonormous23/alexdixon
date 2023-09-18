@@ -5,11 +5,15 @@ export const NavContainer = styled.nav`
     height: 100px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
     padding: 2rem 10rem;
-    border-bottom: 1px solid;
 `;
 
 export const NavInnerContainer = styled.div`
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    max-width: ${({ theme }) => theme.widths.contentMaxWidth};
 `;

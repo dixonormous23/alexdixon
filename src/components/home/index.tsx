@@ -1,3 +1,5 @@
+'use client';
+
 import { HeroSection } from "./HeroSection";
 
 export const HomeComponent: React.FC = () => {
@@ -7,3 +9,5 @@ export const HomeComponent: React.FC = () => {
         </>
     );
 };
+
+export default HomeComponent;

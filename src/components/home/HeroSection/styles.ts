@@ -7,14 +7,15 @@ export const HeroSectionWrapper = styled.div`
 `;
 
 export const HeroInnerWrapper = styled.div`
-    height: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+`;
 
-    span {
-        font-size: 2rem;
-    }
+export const HeroGreeting = styled.span`
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const HeroTextWrapper = styled.div`
@@ -27,7 +28,18 @@ export const HeroTextWrapper = styled.div`
     }
 
     strong {
-        border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.3rem;
+            width: 100%;
+            height: 0.4rem;
+            border-radius: 1rem;
+            background: ${({ theme }) => theme.colors.primary};
+        }
     }
 
     ${breakpoint('mobile')} {
@@ -35,5 +47,14 @@ export const HeroTextWrapper = styled.div`
             font-size: 2.7rem;
             margin-bottom: 2rem;
         }
+    }
+`;
+
+export const CallToActionWrapper = styled.div`
+    width: 100%;
+    ${breakpoint('mobile')} {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `;
