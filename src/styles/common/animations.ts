@@ -13,3 +13,9 @@ export const buildFadeIn = (startDelay?: number) => {
         animation-fill-mode: forwards;
     `;
 };
+
+export const buildFadeInOnVisible = (visible: boolean, startDelay?: number) => {
+    return css`
+        ${visible ? buildFadeIn(startDelay) : 'display: none'};
+    `;
+}

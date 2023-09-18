@@ -4,7 +4,8 @@ import { ProviderProps } from '../../../@types';
 
 const StyledContentSection = styled.section`
     width: 100%;
-    margin: auto;
+    margin: 2rem;
+    min-height: 100vh;
     max-width: ${({ theme }) => theme.widths.contentMaxWidth};
 `;
 

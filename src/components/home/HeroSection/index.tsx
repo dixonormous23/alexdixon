@@ -9,6 +9,7 @@ import {
     HeroGreeting,
     CallToActionWrapper
 } from './styles';
+import { UnderlinedText } from '@/components/common/UnderlinedText';
 
 const typewriterText = [
     "Professional and enthusiastic software engineer, providing expertise in ReactJS, NextJS and more.",
@@ -27,7 +28,7 @@ export const HeroSection = (): React.ReactElement => {
                 <HeroInnerWrapper>
                     <HeroGreeting>Hey there! 👋</HeroGreeting>
                     <HeroTextWrapper>
-                        <h1>I&apos;m <strong>Alex Dixon</strong></h1>
+                        <h1>I&apos;m <UnderlinedText text="Alex Dixon" /></h1>
                     </HeroTextWrapper>
                     <TypewriterText text={buildTypewriterText()} />
                     <CallToActionWrapper>

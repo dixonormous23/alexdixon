@@ -17,6 +17,6 @@ a {
   box-sizing: border-box;
 }
 
-#modal-body::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
 }

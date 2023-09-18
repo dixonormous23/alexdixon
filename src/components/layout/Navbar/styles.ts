@@ -8,7 +8,9 @@ export const NavContainer = styled.nav`
     justify-content: center;
     position: fixed;
     top: 0;
+    z-index: 10;
     padding: 2rem 10rem;
+    background-color: ${({ theme }) => theme.colors.body}; 
 `;
 
 export const NavInnerContainer = styled.div`
