@@ -1,3 +1,5 @@
+import { buildFadeInOnVisible } from "@/styles/common/animations";
+import { breakpoint } from "@/styles/utils";
 import styled, { keyframes } from "styled-components";
 
 const expandUnderlineAnim = keyframes`
@@ -5,9 +7,17 @@ const expandUnderlineAnim = keyframes`
     to { width: 100%;};
 `;
 
-const StyledUnderlinedText = styled.strong<{ $animationDelay?: number }>`
+const UnderlinedTextWrapper = styled.div<{ $isVisible?: boolean; }>`
+    ${(props) => buildFadeInOnVisible(props.$isVisible ?? true)};
+
+    ${breakpoint('mobile')} {
+        text-align: center;
+    };
+`;
+
+const StyledUnderlinedText = styled.strong<{ $animationDelay?: number; }>`
     position: relative;
-    font-size: inherit;
+    font-size: 3.5rem;
     
     &:after {
         content: "";
@@ -25,9 +35,14 @@ const StyledUnderlinedText = styled.strong<{ $animationDelay?: number }>`
 
 interface UnderlinedTextProps {
     text: string;
+    isVisible?: boolean;
     animationDelay?: number;
 }
 
-export const UnderlinedText: React.FC<UnderlinedTextProps> = ({ text, animationDelay }) => {
-    return <StyledUnderlinedText $animationDelay={animationDelay}>{text}</StyledUnderlinedText>
+export const UnderlinedText: React.FC<UnderlinedTextProps> = ({ text, isVisible = true, animationDelay }) => {
+    return (
+        <UnderlinedTextWrapper $isVisible={isVisible}>
+            <StyledUnderlinedText $animationDelay={animationDelay}>{text}</StyledUnderlinedText>
+        </UnderlinedTextWrapper>
+    )
 };

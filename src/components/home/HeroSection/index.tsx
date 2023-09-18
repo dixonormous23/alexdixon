@@ -28,7 +28,8 @@ export const HeroSection = (): React.ReactElement => {
                 <HeroInnerWrapper>
                     <HeroGreeting>Hey there! 👋</HeroGreeting>
                     <HeroTextWrapper>
-                        <h1>I&apos;m <UnderlinedText text="Alex Dixon" /></h1>
+                        <h1>I&apos;m</h1>
+                        <UnderlinedText text="Alex Dixon" />
                     </HeroTextWrapper>
                     <TypewriterText text={buildTypewriterText()} />
                     <CallToActionWrapper>

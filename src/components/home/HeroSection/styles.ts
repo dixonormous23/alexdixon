@@ -26,18 +26,23 @@ export const HeroGreeting = styled.span`
 
 export const HeroTextWrapper = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    font-size: 3.5rem;
     ${buildFadeIn(0.5)};
 
     h1 {
-        font-size: 3.5rem;
+        font-size: inherit;
+        margin-right: 1rem;
     }
 
     ${breakpoint('mobile')} {
         h1 {
             font-size: 2.7rem;
             margin-bottom: 2rem;
+        }
+
+        strong {
+            font-size: 3rem;
         }
     }
 `;

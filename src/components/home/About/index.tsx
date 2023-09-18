@@ -21,9 +21,7 @@ export const AboutSection = () => {
             <AboutContentWrapper ref={containerRef}>
                 {isVisible ? (
                     <Fragment>
-                        <AboutTitle $isVisible={isVisible}>
-                            <UnderlinedText text="About me" animationDelay={0.5} />
-                        </AboutTitle>
+                        <UnderlinedText text="About me" animationDelay={0.5} isVisible={isVisible} />
                         <AboutCopyWrapper $isVisible={isVisible}>
                             <AboutMeCopy dangerouslySetInnerHTML={{ __html: ABOUT_ME_COPY }}/>
                         </AboutCopyWrapper>
