@@ -11,15 +11,7 @@ import {
 } from './styles';
 import { UnderlinedText } from '@/components/common/UnderlinedText';
 
-const typewriterText = [
-    "Professional and enthusiastic software engineer, providing expertise in ReactJS, NextJS and more.",
-    "Software engineer with over 7 years experience, offering expertise in ReactJS, NextJS and more.",
-    "Experienced, results-driven Software Engineer with a proven track record of delivering cutting-edge web applications.",
-];
-
-const buildTypewriterText = (): string => {
-    return typewriterText[Math.floor(Math.random() * typewriterText.length)];
-}
+const TYPEWRITER_TEXT = "Experienced, results-driven Software Engineer with a proven track record of delivering cutting-edge web applications."; 
 
 export const HeroSection = (): React.ReactElement => {
     return (
@@ -31,7 +23,7 @@ export const HeroSection = (): React.ReactElement => {
                         <h1>I&apos;m</h1>
                         <UnderlinedText text="Alex Dixon" />
                     </HeroTextWrapper>
-                    <TypewriterText text={buildTypewriterText()} />
+                    <TypewriterText text={TYPEWRITER_TEXT} delay={20} />
                     <CallToActionWrapper>
                         <SocialLinks />
                         <DownloadResumeButton />

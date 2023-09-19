@@ -31,6 +31,7 @@ export const SkillItemSection = styled.div`
 export const SkillItemWrapper = styled.div`
     margin-right: 2rem;
     margin-bottom: 1rem;
+    transition: 0.2s;
 
     ${breakpoint('mobile')} {
         display: flex;

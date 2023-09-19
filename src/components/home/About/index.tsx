@@ -1,9 +1,9 @@
 import { useRef, Fragment } from 'react';
 
 import { ContentSection } from "@/components/ContentSection";
-import { useIsComponentVisible } from "@/utils/useIsComponentVisible";
+import { useIsComponentVisible } from "@/hooks/useIsComponentVisible";
 import { UnderlinedText } from '@/components/common/UnderlinedText';
-import { AboutContentWrapper, AboutTitle, AboutCopyWrapper, AboutMeCopy } from "./styles";
+import { AboutContentWrapper, AboutCopyWrapper, AboutMeCopy } from "./styles";
 
 const ABOUT_ME_COPY = `
     I'm a <b>passionate</b> React developer who thrives on crafting <b>exceptional web experiences</b>.

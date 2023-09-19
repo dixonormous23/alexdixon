@@ -19,3 +19,11 @@ export const NavInnerContainer = styled.div`
     width: 100%;
     max-width: ${({ theme }) => theme.widths.contentMaxWidth};
 `;
+
+export const NavItemsWrapper = styled.div`
+    flex-grow: 1;
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;

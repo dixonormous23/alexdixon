@@ -27,7 +27,7 @@ const StyledDownloadButton = styled.a`
 export const DownloadResumeButton = (): React.ReactElement => {
     return (
         <DownloadButtonWrapper>
-            <StyledDownloadButton download href={'/AlexDixon_Resume.pdf'}>
+            <StyledDownloadButton download href={'/resume/AlexDixon_Resume.pdf'}>
                 Download CSV
             </StyledDownloadButton>
         </DownloadButtonWrapper>
