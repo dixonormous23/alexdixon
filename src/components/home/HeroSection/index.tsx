@@ -10,8 +10,7 @@ import {
     CallToActionWrapper
 } from './styles';
 import { UnderlinedText } from '@/components/common/UnderlinedText';
-
-const TYPEWRITER_TEXT = "Experienced, results-driven Software Engineer with a proven track record of delivering cutting-edge web applications."; 
+import { DEV_DESCRIPTION } from '@/constants';
 
 export const HeroSection = (): React.ReactElement => {
     return (
@@ -23,7 +22,7 @@ export const HeroSection = (): React.ReactElement => {
                         <h1>I&apos;m</h1>
                         <UnderlinedText text="Alex Dixon" />
                     </HeroTextWrapper>
-                    <TypewriterText text={TYPEWRITER_TEXT} delay={20} />
+                    <TypewriterText text={DEV_DESCRIPTION} delay={20} />
                     <CallToActionWrapper>
                         <SocialLinks />
                         <DownloadResumeButton />

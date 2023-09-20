@@ -4,7 +4,8 @@ export const theme = {
     colors: {
         body: '#121212',
         text: '#f0f0f0',
-        primary: '#3399FF',
+        primary: '#2196f3',
+        primaryDark: 'rgba(10, 46, 74, 0.8)',
         primaryFaded: 'rgba(51, 153, 255, 0.5)'
     },
     breakpoints: {

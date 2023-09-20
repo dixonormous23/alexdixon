@@ -10,21 +10,19 @@ const SocialLinksWrapper = styled.div`
     margin: 2rem 0;
 `;
 
-const SocialLinkAnchor = styled.a`
-
-`;
+const SocialLinkAnchor = styled.a``;
 
 export const SocialLinks = (): React.ReactElement => {
     return (
         <SocialLinksWrapper>
-            <SocialLinkAnchor>
-                <Icon variant='email' />
+            <SocialLinkAnchor href="mailto:adixondev92@gmail.com">
+                <Icon variant="email" />
             </SocialLinkAnchor>
             <SocialLinkAnchor href="https://www.github.com/dixonormous23" target="_blank">
-                <Icon variant='github' />
+                <Icon variant="github" />
             </SocialLinkAnchor>
             <SocialLinkAnchor href="https://www.linkedin.com/in/alex-dixon-dev/" target="_blank">
-                <Icon variant='linked-in' />
+                <Icon variant="linked-in" />
             </SocialLinkAnchor>
         </SocialLinksWrapper>
     );

@@ -1,4 +1,13 @@
-import { NavContainer, NavInnerContainer, NavItemsWrapper } from "./styles";
+import { useState } from 'react';
+
+import {
+    NavContainer,
+    NavInnerContainer,
+    NavItemsWrapper,
+    NavItemButton,
+    NavItemLabel,
+    NavItemHover
+} from "./styles";
 
 interface NavItemInterface {
     label: string;
@@ -21,8 +30,8 @@ const navItems: NavItemInterface[] = [
 ];
 
 const NavbarLink = ({ label, anchor }: NavItemInterface) => {
-    const SCROLL_OFFSET = 180;
     const onClick = () => {
+        const SCROLL_OFFSET = 180;
         const anchorPosition = document.getElementById(anchor)?.getBoundingClientRect()?.top ?? null;
     
         if (anchorPosition) {
@@ -32,9 +41,9 @@ const NavbarLink = ({ label, anchor }: NavItemInterface) => {
     };
 
     return (
-        <div onClick={onClick}>
-            <a>{label}</a>
-        </div>
+        <NavItemButton onClick={onClick}>
+            <NavItemLabel>{label}</NavItemLabel>
+        </NavItemButton>
     );
 };
 

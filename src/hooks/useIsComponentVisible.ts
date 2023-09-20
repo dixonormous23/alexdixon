@@ -10,8 +10,8 @@ export function useIsComponentVisible<T = any>(ref: MutableRefObject<T> | any) {
             if (ref.current) {
                 observer?.observe(ref.current);
             }
+            
             return () => observer.disconnect();
-        
         }
     }, [ref]);
 

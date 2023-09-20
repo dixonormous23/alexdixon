@@ -19,7 +19,7 @@ const StyledDownloadButton = styled.a`
     transition: 0.2s;
     border: 2px solid ${({ theme }) => theme.colors.primary};
     
-    :hover {
+    &:hover {
         box-shadow: 0 0 10px ${({ theme }) => theme.colors.primaryFaded};
     }
 `;
@@ -28,7 +28,7 @@ export const DownloadResumeButton = (): React.ReactElement => {
     return (
         <DownloadButtonWrapper>
             <StyledDownloadButton download href={'/resume/AlexDixon_Resume.pdf'}>
-                Download CSV
+                Download CV
             </StyledDownloadButton>
         </DownloadButtonWrapper>
     );
