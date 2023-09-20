@@ -1,6 +1,6 @@
 import { useState, useEffect, MutableRefObject } from 'react';
 
-export function useIsComponentVisible<T = any>(ref: MutableRefObject<T> | any) {
+export function useIsComponentVisible<T = any>(ref: MutableRefObject<T> | any, keepMounted?: boolean) {
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const [hasRendered, setHasRendered] = useState<boolean>(false);
 
@@ -16,10 +16,10 @@ export function useIsComponentVisible<T = any>(ref: MutableRefObject<T> | any) {
     }, [ref]);
 
     useEffect(() => {
-        if (isVisible && !hasRendered) {
+        if (isVisible && !hasRendered && keepMounted) {
             setHasRendered(true);
         }
-    }, [isVisible, hasRendered]);
+    }, [isVisible, hasRendered, keepMounted]);
 
-    return isVisible || hasRendered;
+    return keepMounted ? (isVisible || hasRendered) : isVisible;
 };

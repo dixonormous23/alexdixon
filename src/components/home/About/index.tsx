@@ -1,9 +1,8 @@
-import { useRef, Fragment } from 'react';
+import { Fragment } from 'react';
 
-import { ContentSection } from "@/components/ContentSection";
-import { useIsComponentVisible } from "@/hooks/useIsComponentVisible";
+import { ContentSection, ContentSectionContext } from "@/components/ContentSection";
 import { UnderlinedText } from '@/components/common/UnderlinedText';
-import { AboutContentWrapper, AboutCopyWrapper, AboutMeCopy } from "./styles";
+import { AboutCopyWrapper, AboutMeCopy } from "./styles";
 
 const ABOUT_ME_COPY = `
     I'm a <b>passionate</b> React developer who thrives on crafting <b>exceptional web experiences</b>.
@@ -11,23 +10,19 @@ const ABOUT_ME_COPY = `
     My journey began with JavaScript, and I've since embraced React as my framework of choice for building <b>dynamic, user-friendly applications<b/>.
 `;
 
-export const AboutSection = () => {
-    const containerRef = useRef(null);
-
-    const isVisible = useIsComponentVisible(containerRef);
-
+export const AboutSection = (): React.ReactElement => {
     return (
-        <ContentSection anchorId="about">
-            <AboutContentWrapper ref={containerRef}>
-                {isVisible ? (
+        <ContentSection anchorId="about" useVisibility>
+            <ContentSectionContext.Consumer>
+                {({ isVisible }) => (
                     <Fragment>
-                        <UnderlinedText text="About me" animationDelay={0.5} isVisible={isVisible} />
+                        <UnderlinedText text="About me" isVisible={isVisible} />
                         <AboutCopyWrapper $isVisible={isVisible}>
                             <AboutMeCopy dangerouslySetInnerHTML={{ __html: ABOUT_ME_COPY }}/>
                         </AboutCopyWrapper>
                     </Fragment>
-                ) : null}
-            </AboutContentWrapper>
+                )}
+            </ContentSectionContext.Consumer>
         </ContentSection>
     );
 };

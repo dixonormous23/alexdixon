@@ -16,6 +16,6 @@ export const buildFadeIn = (startDelay?: number) => {
 
 export const buildFadeInOnVisible = (visible: boolean, startDelay?: number) => {
     return css`
-        ${visible ? buildFadeIn(startDelay) : 'display: none'};
+        ${visible ? buildFadeIn(startDelay) : null};
     `;
 }

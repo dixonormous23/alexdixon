@@ -1,60 +1,26 @@
-import { useRef, Fragment } from 'react';
-import Image from 'next/image';
+import { Fragment } from 'react';
 
-import { ContentSection } from "@/components/ContentSection";
-import { useIsComponentVisible } from "@/hooks/useIsComponentVisible";
+import { ContentContextConsumer, ContentSection } from "@/components/ContentSection";
 import { UnderlinedText } from '@/components/common/UnderlinedText';
-import { experienceItems, ExperienceItemInterface } from './experience';
-import {
-    ExperienceItemDetailsWrapper,
-    ExperienceItemsContainer,
-    ExperienceItemInnerWrapper,
-    ExperienceItemLeftContainer,
-    ExperienceItemWrapper,
-    CompanyDetailsWrapper,
-    ExperienceItemRightContainer
-} from './styles';
+import { ExperienceItem } from './components/ExperienceCard';
+import { experienceItems } from './experience';
+import { ExperienceItemsContainer } from './styles';
 
-const ExperienceItem = ({ image, companyName, jobTitle, jobDescription, timePeriod }: ExperienceItemInterface) => {
+export const ExperienceSection = (): React.ReactElement => {
     return (
-        <ExperienceItemWrapper>
-            <ExperienceItemInnerWrapper>
-                <ExperienceItemLeftContainer>
-                    <strong>{jobTitle}</strong>
-                    <ExperienceItemDetailsWrapper>
-                        <CompanyDetailsWrapper>
-                            <Image src={image} alt={companyName} width={20} height={20} />
-                            <span>{companyName}</span>
-                        </CompanyDetailsWrapper>
-                        <small>{timePeriod}</small>
-                    </ExperienceItemDetailsWrapper>
-                </ExperienceItemLeftContainer>
-                <ExperienceItemRightContainer>
-                    <h3>{companyName}</h3>
-                    <p>{jobDescription}</p>
-                </ExperienceItemRightContainer>
-            </ExperienceItemInnerWrapper>
-        </ExperienceItemWrapper>
-    );
-};
-
-export const ExperienceSection = () => {
-    const containerRef = useRef(null);
-
-    const isVisible = useIsComponentVisible(containerRef);
-
-    return (
-        <ContentSection anchorId="experience">
-            <div ref={containerRef}>
-                {isVisible ? (
+        <ContentSection anchorId="experience" useVisibility>
+            <ContentContextConsumer>
+                {({ isVisible }) => (                    
                     <Fragment>
-                        <UnderlinedText text="Experience" animationDelay={0.5} isVisible={isVisible} />
+                        <UnderlinedText text="Experience" isVisible={isVisible} />
                         <ExperienceItemsContainer>
-                            {experienceItems.map((item) => <ExperienceItem key={item.companyName} {...item} />)}
+                            {experienceItems.map((item, i) => (
+                                <ExperienceItem key={item.companyName} $isVisible={isVisible} $delay={i} {...item} />
+                            ))}
                         </ExperienceItemsContainer>
                     </Fragment>
-                ) : null}
-            </div>
+                )}
+            </ContentContextConsumer>
         </ContentSection>
     );
 };

@@ -1,14 +1,11 @@
 import { buildFadeInOnVisible } from "@/styles/common/animations";
 import { breakpoint } from "@/styles/utils";
 import styled from "styled-components";
-
-interface VisibilityProps {
-    $isVisible: boolean;
-}
+import { VisibilityStyleProps } from "../../../../@types";
 
 export const AboutContentWrapper = styled.div``;
 
-export const AboutTitle = styled.div<VisibilityProps>`
+export const AboutTitle = styled.div<VisibilityStyleProps>`
     font-size: 3.5rem;
 
     ${(props) => buildFadeInOnVisible(props.$isVisible)};
@@ -18,7 +15,7 @@ export const AboutTitle = styled.div<VisibilityProps>`
     };
 `;
 
-export const AboutCopyWrapper = styled.div<VisibilityProps>`
+export const AboutCopyWrapper = styled.div<VisibilityStyleProps>`
     margin-top: 3rem;
     max-width: 65%;
 
