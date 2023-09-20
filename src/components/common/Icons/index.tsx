@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { EmailIcon } from './EmailIcon';
 import { GithubIcon } from './GithubIcon';
 import { LinkedInIcon } from './LinkedInIcon';
+import { HomeIcon } from './HomeIcon';
+import { MenuIcon } from './MenuIcon';
 
-type IconVariant = 'email' | 'github' | 'linked-in'
+type IconVariant =
+    'email' | 'github' | 'linked-in' | 'home' | 'menu';
 
 interface IconProps {
     variant: IconVariant;
@@ -33,6 +36,10 @@ export const Icon: React.FC<IconProps> = ({ variant, width = 30 }) => {
                 return <GithubIcon />;
             case 'linked-in':
                 return <LinkedInIcon />;
+            case 'home':
+                return <HomeIcon />;
+            case 'menu':
+                return <MenuIcon />;
             default: 
                 return null;
         }

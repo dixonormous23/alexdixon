@@ -1,62 +1,23 @@
 import { useState } from 'react';
 
-import {
-    NavContainer,
-    NavInnerContainer,
-    NavItemsWrapper,
-    NavItemButton,
-    NavItemLabel,
-    NavItemHover
-} from "./styles";
-
-interface NavItemInterface {
-    label: string;
-    anchor: string;
-}
-
-const navItems: NavItemInterface[] = [
-    {
-        label: 'About',
-        anchor: 'about'
-    },
-    {
-        label: 'Skills',
-        anchor: 'skills'
-    },
-    {
-        label: 'Experience',
-        anchor: 'experience'
-    },
-];
-
-const NavbarLink = ({ label, anchor }: NavItemInterface) => {
-    const onClick = () => {
-        const SCROLL_OFFSET = 180;
-        const anchorPosition = document.getElementById(anchor)?.getBoundingClientRect()?.top ?? null;
-    
-        if (anchorPosition) {
-            const scrollDestination = anchorPosition - SCROLL_OFFSET + window.scrollY;
-            window.scrollTo({ behavior: 'smooth', top: scrollDestination });
-        }
-    };
-
-    return (
-        <NavItemButton onClick={onClick}>
-            <NavItemLabel>{label}</NavItemLabel>
-        </NavItemButton>
-    );
-};
+import { Icon } from "@/components/common/Icons";
+import { useScrollToComponent } from "@/hooks/useScrollToComponent";
+import { NavContainer, NavInnerContainer, NavMenuButton } from "./styles";
 
 export const Navbar = (): React.ReactElement => {
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+    const { scrollToComponent } = useScrollToComponent();
+
     return (
         <NavContainer>
             <NavInnerContainer>
-                <div>
-                    <p>Navbar</p>
+                <div onClick={() => scrollToComponent('home')}>
+                    <Icon variant="home" />
                 </div>
-                <NavItemsWrapper>
-                    {navItems.map((item) => <NavbarLink key={item.anchor} {...item} />)}
-                </NavItemsWrapper>
+                <NavMenuButton>
+                    <Icon variant="menu" />
+                </NavMenuButton>
             </NavInnerContainer>
         </NavContainer>
     )

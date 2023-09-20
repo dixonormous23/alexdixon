@@ -1,28 +1,13 @@
 import { createRef, useMemo, Fragment, createContext } from 'react';
-import styled from 'styled-components';
 
 import { useIsComponentVisible } from '@/hooks/useIsComponentVisible';
-import { ProviderProps, VisibilityStyleProps } from '../../../@types';
-
-const StyledContentSection = styled.section`
-    width: 100%;
-    min-height: clamp(70vh, 1200px, 85vh);
-    margin: 4rem auto;    
-    padding-inline: 2rem;
-    max-width: ${({ theme }) => theme.widths.contentMaxWidth};
-`;
-
-const RefWrapper = styled.div`
-    min-height: inherit;
-`;
-
-const VisibilityWrapper = styled.div<VisibilityStyleProps>`
-    visibility: ${(props) => props.$isVisible ? 'visible' : 'hidden'};
-`;
+import { ProviderProps } from '../../../@types';
+import { StyledContentSection, VisibilityWrapper, RefWrapper } from './styles';
 
 interface ContentSectionProps extends ProviderProps {
     anchorId: string;
     useVisibility?: boolean;
+    keepMounted?: boolean;
 }
 
 interface ContextInterface {
@@ -33,9 +18,9 @@ export const ContentSectionContext = createContext(undefined as unknown as Conte
 
 export const ContentContextConsumer = ContentSectionContext.Consumer;
 
-export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchorId, useVisibility }) => {
+export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchorId, useVisibility, keepMounted = false }) => {
     const wrapperRef = createRef<HTMLDivElement>();
-    const isVisible = useIsComponentVisible(wrapperRef);
+    const isVisible = useIsComponentVisible(wrapperRef, keepMounted);
 
     const renderChildren = useMemo(() => {
         if (useVisibility) {

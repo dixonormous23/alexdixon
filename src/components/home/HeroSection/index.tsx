@@ -19,8 +19,7 @@ export const HeroSection = (): React.ReactElement => {
                 <HeroInnerWrapper>
                     <HeroGreeting>Hey there! 👋</HeroGreeting>
                     <HeroTextWrapper>
-                        <h1>I&apos;m</h1>
-                        <UnderlinedText text="Alex Dixon" isVisible />
+                        <UnderlinedText prefix="I'm" text="Alex Dixon" isVisible />
                     </HeroTextWrapper>
                     <TypewriterText text={DEV_DESCRIPTION} delay={20} />
                     <CallToActionWrapper>

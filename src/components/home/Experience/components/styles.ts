@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { buildFadeInOnVisible } from "@/styles/common/animations";
 import { VisibilityStyleProps } from "../../../../../@types";
+import { breakpoint } from "@/styles/utils";
 
 export const ExperienceItemWrapper = styled.div<VisibilityStyleProps>`
     margin: 1rem;
@@ -11,11 +12,20 @@ export const ExperienceItemWrapper = styled.div<VisibilityStyleProps>`
     background-color: ${({ theme }) => theme.colors.primaryDark};
 
     ${(props) => buildFadeInOnVisible(props.$isVisible, props.$delay)};
+
+    ${breakpoint('mobile')} {
+        padding: 1.5rem;
+    }
 `;
 
 export const ExperienceItemInnerWrapper = styled.div`
     display: flex;
     align-items: baseline;
+
+    ${breakpoint('mobile')} {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const ExperienceItemLeftContainer = styled.div`
@@ -25,6 +35,12 @@ export const ExperienceItemLeftContainer = styled.div`
 
     strong {
         font-size: 1.2rem;
+    }
+
+    ${breakpoint('mobile')} {
+        width: unset;
+        margin-bottom: 1rem;
+        padding-right: 0;
     }
 `;
 
@@ -61,5 +77,13 @@ export const ExperienceItemRightContainer = styled.div`
 
     p {
         line-height: 2rem;
+    }
+
+    ${breakpoint('mobile')} {
+        border-left: none;
+        padding-top: 2rem;
+        max-width: unset;
+        padding-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.4);
     }
 `;

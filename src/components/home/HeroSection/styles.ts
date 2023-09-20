@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import { buildFadeIn } from "@/styles/common/animations";
 import { breakpoint } from "@/styles/utils";
@@ -8,6 +8,7 @@ export const HeroSectionWrapper = styled.div`
 
     ${breakpoint('mobile')} {
         margin-inline: 2rem;
+        height: 80vh;
     }
 `;
 
@@ -16,6 +17,10 @@ export const HeroInnerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    ${breakpoint('mobile')} {
+        // align-items: center;
+    }
 `;
 
 export const HeroGreeting = styled.span`
@@ -28,21 +33,13 @@ export const HeroTextWrapper = styled.div`
     display: flex;
     align-items: center;
     font-size: 3.5rem;
+    margin: 2rem 0;
     ${buildFadeIn(0.5)};
 
-    h1 {
-        font-size: inherit;
-        margin-right: 1rem;
-    }
-
     ${breakpoint('mobile')} {
-        h1 {
-            font-size: 2.7rem;
-            margin-bottom: 2rem;
-        }
-
+        margin: 1.5rem 0;
         strong {
-            font-size: 3rem;
+            font-size: 2rem;
         }
     }
 `;

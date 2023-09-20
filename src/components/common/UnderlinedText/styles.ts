@@ -17,7 +17,7 @@ export const UnderlinedTextWrapper = styled.div<VisibilityStyleProps>`
     };
 `;
 
-export const StyledUnderlinedText = styled.strong<{ $delay?: number; }>`
+export const StyledUnderlinedText = styled.strong<Pick<VisibilityStyleProps, '$delay'>>`
     position: relative;
     font-size: 3.5rem;
     

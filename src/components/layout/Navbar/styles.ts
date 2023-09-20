@@ -1,3 +1,4 @@
+import { breakpoint } from "@/styles/utils";
 import styled from "styled-components";
 
 export const NavContainer = styled.nav`
@@ -10,13 +11,18 @@ export const NavContainer = styled.nav`
     top: 0;
     z-index: 10;
     padding: 2rem 10rem;
-    background-color: ${({ theme }) => theme.colors.body}; 
+    background-color: ${({ theme }) => theme.colors.body};
+
+    ${breakpoint('mobile')} {
+        padding: 1rem 2rem;
+    }
 `;
 
 export const NavInnerContainer = styled.div`
     display: flex;
-    justify-content: space-between;
     width: 100%;
+    position: relative;
+    justify-content: space-between;
     max-width: ${({ theme }) => theme.widths.contentMaxWidth};
 `;
 
@@ -47,19 +53,12 @@ export const NavItemButton = styled.button`
     }
 `;
 
-export const NavItemHover = styled.div<{ $isActive: boolean; }>`
-    position: absolute;
-    transition: 0.3s;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    border-radius: 10px;
-    z-index: 1;
-    background: ${({ theme }) => theme.colors.primary};
-    left: ${(props) => props.$isActive ? 0 : -100}px;
-    opacity: ${(props) => props.$isActive ? 0.9 : 0};
-`;
-
 export const NavItemLabel = styled.a`
     font-size: 1rem;
+`;
+
+export const NavMenuButton = styled.button`
+    background: transparent;
+    border: none;
+    cursor: pointer;
 `;

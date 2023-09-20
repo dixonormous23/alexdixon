@@ -22,21 +22,21 @@ const SkillItem: React.FC<SkillItemInterface & VisibilityStyleProps> = ({ image,
 
 export const SkillsSection = (): React.ReactElement => {
     return (
-        <ContentSection anchorId="skills" useVisibility>
+        <ContentSection anchorId="skills" useVisibility keepMounted>
             <ContentContextConsumer>
                 {({ isVisible }) => (
                     <Fragment>
-                        <UnderlinedText text="Skills" $delay={0.5} $isVisible={isVisible} />
-                        {isVisible ? skillSections.map((section) => (
+                        <UnderlinedText text="Skills" isVisible={isVisible} />
+                        {skillSections.map((section) => (
                             <SkillSection key={section.title}>
                                 <SkillTitle>{section.title}</SkillTitle>
                                 <SkillItemSection>
-                                    {section.data.map((item, i) => (
+                                    {isVisible ? section.data.map((item, i) => (
                                         <SkillItem key={i} $isVisible={isVisible} $delay={i / 3} {...item} />
-                                    ))}
+                                    )) : null}
                                 </SkillItemSection>
                             </SkillSection>
-                        )) : null}
+                        ))}
                     </Fragment>
                 )}
             </ContentContextConsumer>

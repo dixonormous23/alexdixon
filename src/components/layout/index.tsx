@@ -3,6 +3,7 @@ import { Navbar } from './Navbar';
 import { ProviderProps } from '../../../@types';
 import { StyledComponentsRegistry } from '../../../lib/registry';
 import { Meta } from '../Meta';
+import { NavbarMenu } from './NavbarMenu';
 
 const MainContainer = styled.main`
     display: flex;
@@ -18,6 +19,7 @@ export const AppLayout: React.FC<ProviderProps> = ({ children }) => {
             <Meta />
             <MainContainer>
                 <Navbar />
+                <NavbarMenu open />
                 {children}
             </MainContainer>
         </StyledComponentsRegistry>
