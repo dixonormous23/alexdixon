@@ -1,8 +1,10 @@
-
-
 import { SocialLinks } from "@/components/common/SocialLinks";
-
-
+import {
+    FooterContainer,
+    FooterInnerContainer,
+    GithubRepoLinkWrapper,
+    GithubRepoLink
+} from './styles';
 
 export const Footer = () => {
     return (
