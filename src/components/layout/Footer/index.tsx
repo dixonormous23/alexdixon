@@ -19,7 +19,6 @@ export const Footer = () => {
                         Check out the repo
                     </GithubRepoLink>
                 </GithubRepoLinkWrapper>
-                <p>Made with ❤ by Alex Dixon</p>
             </FooterInnerContainer>
         </FooterContainer>
     );
