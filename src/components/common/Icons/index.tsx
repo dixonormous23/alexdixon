@@ -6,9 +6,10 @@ import { GithubIcon } from './GithubIcon';
 import { LinkedInIcon } from './LinkedInIcon';
 import { HomeIcon } from './HomeIcon';
 import { MenuIcon } from './MenuIcon';
+import { CloseIcon } from './CloseIcon';
 
 type IconVariant =
-    'email' | 'github' | 'linked-in' | 'home' | 'menu';
+    'email' | 'github' | 'linked-in' | 'home' | 'menu' | 'close';
 
 interface IconProps {
     variant: IconVariant;
@@ -41,6 +42,8 @@ export const Icon: React.FC<IconProps> = ({ variant, width = 30 }) => {
                 return <HomeIcon />;
             case 'menu':
                 return <MenuIcon />;
+            case 'close':
+                return <CloseIcon />;
             default: 
                 return null;
         }

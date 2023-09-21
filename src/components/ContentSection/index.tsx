@@ -1,26 +1,30 @@
-import { createRef, useMemo, Fragment, createContext } from 'react';
+import { createRef, useMemo, createContext, useEffect, useState, Fragment, useContext } from 'react';
 
 import { useIsComponentVisible } from '@/hooks/useIsComponentVisible';
 import { ProviderProps } from '../../../@types';
 import { StyledContentSection, VisibilityWrapper, RefWrapper } from './styles';
 
+type SectionId = 'home' | 'about' | 'skills' | 'experience' | 'portfolio' | 'contact';
+
 interface ContentSectionProps extends ProviderProps {
-    anchorId: string;
+    anchorId: SectionId;
     useVisibility?: boolean;
-    keepMounted?: boolean;
 }
 
-interface ContextInterface {
+interface ContentSectionContextInterface {
     isVisible: boolean;
+    currentSection: SectionId;
 }
 
-export const ContentSectionContext = createContext(undefined as unknown as ContextInterface);
+export const ContentSectionContext = createContext(undefined as unknown as ContentSectionContextInterface);
 
 export const ContentContextConsumer = ContentSectionContext.Consumer;
 
-export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchorId, useVisibility, keepMounted = false }) => {
+export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchorId, useVisibility }) => {
+    const [currentSection, setCurrentSection] = useState<SectionId>('home');
+
     const wrapperRef = createRef<HTMLDivElement>();
-    const isVisible = useIsComponentVisible(wrapperRef, keepMounted);
+    const isVisible = useIsComponentVisible(wrapperRef);
 
     const renderChildren = useMemo(() => {
         if (useVisibility) {
@@ -29,8 +33,14 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchor
         return <Fragment>{children}</Fragment>
     }, [children, isVisible, useVisibility]);
 
+    useEffect(() => {
+        if (isVisible) {
+            setCurrentSection(anchorId);
+        }
+    }, [isVisible, anchorId]);
+
     return (
-        <ContentSectionContext.Provider value={{ isVisible }}>
+        <ContentSectionContext.Provider value={{ isVisible, currentSection }}>
             <StyledContentSection id={anchorId}>
                 <RefWrapper ref={wrapperRef}>
                     {renderChildren}
@@ -38,4 +48,8 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchor
             </StyledContentSection>
         </ContentSectionContext.Provider>
     );
+};
+
+export const useContentSectionContext = (): ContentSectionContextInterface => {
+    return useContext(ContentSectionContext);
 };

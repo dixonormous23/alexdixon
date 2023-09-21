@@ -23,7 +23,7 @@ export const NavInnerContainer = styled.div`
     display: flex;
     width: 100%;
     position: relative;
-    justify-content: space-between;
+    justify-content: flex-end;
     max-width: ${({ theme }) => theme.widths.contentMaxWidth};
 `;
 

@@ -10,9 +10,7 @@ export const PortfolioItemsContainer = styled.div`
     justify-content: center;
     
     ${breakpoint('mobile')} {
-        overflow-x: scroll;
         margin-inline: 1rem;
-        flex-wrap: nowrap;
         justify-content: flex-start;
     }
 `;
