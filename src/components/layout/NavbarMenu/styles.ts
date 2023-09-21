@@ -29,7 +29,7 @@ export const MenuContainer = styled.div<NavbarMenuStyleProps>`
     position: fixed;
     opacity: 0;
     transition: 0.2s;
-    top: ${(props) => props.$open ? 20 : -100}%;
+    top: ${(props) => props.$open ? 10 : -100}%;
     pointer-events: ${(props) => props.$open ? 'all' : 'none'};
     opacity: ${(props) => props.$open ? 1 : 0};
 

@@ -5,6 +5,7 @@ import { AboutSection } from "./About";
 import { SkillsSection } from './Skills';
 import { ExperienceSection } from './Experience';
 import { PortfolioSection } from './Portfolio';
+import { ContactSection } from './Contact';
 
 export const HomeComponent: React.FC = () => {
     return (
@@ -14,6 +15,7 @@ export const HomeComponent: React.FC = () => {
             <SkillsSection />
             <ExperienceSection />
             <PortfolioSection />
+            <ContactSection />
         </Fragment>
     );
 };

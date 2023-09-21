@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import { ContentSection, ContentSectionContext } from "@/components/ContentSection";
+import { ContentContextConsumer, ContentSection, ContentSectionContext } from "@/components/ContentSection";
 import { UnderlinedText } from '@/components/common/UnderlinedText';
 import { AboutCopyWrapper, AboutMeCopy } from "./styles";
 
@@ -13,7 +13,7 @@ const ABOUT_ME_COPY = `
 export const AboutSection = (): React.ReactElement => {
     return (
         <ContentSection anchorId="about" useVisibility>
-            <ContentSectionContext.Consumer>
+            <ContentContextConsumer>
                 {({ isVisible }) => (
                     <Fragment>
                         <UnderlinedText text="About me" isVisible={isVisible} />
@@ -22,7 +22,7 @@ export const AboutSection = (): React.ReactElement => {
                         </AboutCopyWrapper>
                     </Fragment>
                 )}
-            </ContentSectionContext.Consumer>
+            </ContentContextConsumer>
         </ContentSection>
     );
 };

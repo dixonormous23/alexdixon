@@ -43,7 +43,14 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchor
         <ContentSectionContext.Provider value={{ isVisible, currentSection }}>
             <StyledContentSection id={anchorId}>
                 <RefWrapper ref={wrapperRef}>
-                    {renderChildren}
+                    <ContentContextConsumer>
+                        {({ isVisible }) => (
+                            <Fragment>
+                                {isVisible}
+                                {renderChildren}
+                            </Fragment>
+                        )}
+                    </ContentContextConsumer>
                 </RefWrapper>
             </StyledContentSection>
         </ContentSectionContext.Provider>

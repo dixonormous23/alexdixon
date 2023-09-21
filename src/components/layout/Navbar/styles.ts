@@ -2,16 +2,17 @@ import styled from "styled-components";
 
 import { breakpoint } from "@/styles/utils";
 
-export const NavContainer = styled.nav`
+export const NavContainer = styled.nav<{ $condensed: boolean }>`
+    top: 0;
     width: 100%;
-    height: 100px;
+    z-index: 10;
     display: flex;
+    position: fixed;
+    padding: 2rem 10rem;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    padding: 2rem 10rem;
+    transition: 0.2s;
+    height: ${(props) => props.$condensed ? 75 : 100}px;
     background-color: ${({ theme }) => theme.colors.body};
 
     ${breakpoint('mobile')} {
@@ -33,29 +34,6 @@ export const NavItemsWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-`;
-
-export const NavItemButton = styled.button`
-    border: none;
-    display: flex;
-    cursor: pointer;
-    transition: 0.2s;
-    position: relative;
-    border-radius: 5px;
-    align-items: center;
-    font-family: inherit;
-    padding: 0.5rem 2rem;
-    justify-content: center;
-    background-color: transparent;
-    color: ${({ theme }) => theme.colors.text};
-
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.primaryFaded};
-    }
-`;
-
-export const NavItemLabel = styled.a`
-    font-size: 1rem;
 `;
 
 export const NavMenuButton = styled.button`

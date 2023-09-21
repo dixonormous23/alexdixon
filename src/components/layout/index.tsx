@@ -4,6 +4,7 @@ import { ProviderProps } from '../../../@types';
 import { StyledComponentsRegistry } from '../../../lib/registry';
 import { Meta } from '../Meta';
 import { NavbarMenu } from './NavbarMenu';
+import { Footer } from './Footer';
 
 const MainContainer = styled.main`
     display: flex;
@@ -20,6 +21,7 @@ export const AppLayout: React.FC<ProviderProps> = ({ children }) => {
                 <Navbar />
                 <NavbarMenu />
                 {children}
+                <Footer />
             </MainContainer>
         </StyledComponentsRegistry>
     );
