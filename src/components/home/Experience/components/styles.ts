@@ -15,6 +15,7 @@ export const ExperienceItemWrapper = styled.div<VisibilityStyleProps>`
 
     ${breakpoint('mobile')} {
         padding: 1.5rem;
+        margin: 1rem 1.5rem;
     }
 `;
 
@@ -38,7 +39,7 @@ export const ExperienceItemLeftContainer = styled.div`
     }
 
     ${breakpoint('mobile')} {
-        width: unset;
+        width: 100%;
         margin-bottom: 1rem;
         padding-right: 0;
     }

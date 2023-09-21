@@ -17,10 +17,6 @@ export const HeroInnerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    ${breakpoint('mobile')} {
-        // align-items: center;
-    }
 `;
 
 export const HeroGreeting = styled.span`

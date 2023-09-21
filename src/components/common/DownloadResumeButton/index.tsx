@@ -1,5 +1,6 @@
-import { breakpoint } from "@/styles/utils";
 import styled from "styled-components";
+
+import { breakpoint } from "@/styles/utils";
 
 const DownloadButtonWrapper = styled.div`
     padding: 2rem 0;

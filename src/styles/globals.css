@@ -20,3 +20,7 @@ a {
 body::-webkit-scrollbar {
   display: none;
 }
+
+#portfolio-container::-webkit-scrollbar {
+  display: none;
+}

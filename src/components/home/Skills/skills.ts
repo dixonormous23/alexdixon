@@ -28,7 +28,7 @@ export const frameworks: SkillItemInterface[] = [
 export const databases: SkillItemInterface[] = [
     { image: '/skills/aws.png' },
     { image: '/skills/mongodb.svg' },
-    { image: '/skills/firebase.webp' },
+    { image: '/skills/firebase.png' },
 ];
 
 export const skillSections: SkillSectionsInterface[] = [

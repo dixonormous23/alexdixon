@@ -26,5 +26,5 @@ export const StyledComponentsRegistry: React.FC<ProviderProps> = ({ children }) 
         <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
             {children}
         </StyleSheetManager>
-    )
-}
+    );
+};
