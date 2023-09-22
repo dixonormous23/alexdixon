@@ -1,6 +1,6 @@
 import { useState, useEffect, MutableRefObject } from 'react';
 
-export function useIsComponentVisible<T = any>(ref: MutableRefObject<T> | any, keepMounted?: boolean) {
+export function useIsElementVisible<T = any>(ref: MutableRefObject<T> | any, keepMounted?: boolean) {
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const [hasRendered, setHasRendered] = useState<boolean>(false);
 

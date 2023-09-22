@@ -7,20 +7,30 @@ import { LinkedInIcon } from './LinkedInIcon';
 import { HomeIcon } from './HomeIcon';
 import { MenuIcon } from './MenuIcon';
 import { CloseIcon } from './CloseIcon';
+import { NotFoundIcon } from './404';
 
 type IconVariant =
-    'email' | 'github' | 'linked-in' | 'home' | 'menu' | 'close';
+    'email' |
+    'github' |
+    'linked-in' |
+    'home' |
+    'menu' |
+    'close' | 
+    '404'
+;
 
 interface IconProps {
     variant: IconVariant;
     width?: number;
+    defaultActive?: boolean;
 }
 
-const IconWrapper = styled.div<Pick<IconProps, 'width'>>`
+const IconWrapper = styled.div<Pick<IconProps, 'width' | 'defaultActive'>>`
     svg {
-        opacity: 0.5;
         transition: 0.2s;
+        opacity: ${(props) => props.defaultActive ? 1 : 0.5};
         width: ${(props) => props.width}px;
+        height: ${(props) => props.width}px;
         fill: ${({ theme }) => theme.colors.text};
     }
 
@@ -29,7 +39,7 @@ const IconWrapper = styled.div<Pick<IconProps, 'width'>>`
     }
 `;
 
-export const Icon: React.FC<IconProps> = ({ variant, width = 30 }) => {
+export const Icon: React.FC<IconProps> = ({ variant, width = 30, defaultActive = false }) => {
     const icon: JSX.Element| null = useMemo(() => {
         switch (variant) {
             case 'email': 
@@ -44,12 +54,14 @@ export const Icon: React.FC<IconProps> = ({ variant, width = 30 }) => {
                 return <MenuIcon />;
             case 'close':
                 return <CloseIcon />;
+            case '404': 
+                return <NotFoundIcon />;
             default: 
                 return null;
         }
     }, [variant]);
 
     return (
-        <IconWrapper width={width}>{icon}</IconWrapper>
+        <IconWrapper width={width} defaultActive={defaultActive}>{icon}</IconWrapper>
     );
 };

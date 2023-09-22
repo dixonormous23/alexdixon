@@ -12,12 +12,12 @@ import {
     PortfolioItemTitle,
     PortfolioStackWrapper
 } from './styles';
-import { useIsComponentVisible } from '@/hooks/useIsComponentVisible';
+import { useIsElementVisible } from '@/hooks/useIsElementVisible';
 
 const PortfolioItem: React.FC<PortfolioItemInterface> = ({ image, title, stack, shortDescription, mobilePosition }) => {
     const itemRef = createRef<HTMLDivElement>();
 
-    const isVisible = useIsComponentVisible(itemRef);
+    const isVisible = useIsElementVisible(itemRef);
 
     return (
         <PortfolioItemWrapper $isVisible={isVisible} ref={itemRef}>

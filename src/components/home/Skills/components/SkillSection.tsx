@@ -1,13 +1,13 @@
 import { createRef } from "react";
 
-import { useIsComponentVisible } from "@/hooks/useIsComponentVisible";
+import { useIsElementVisible } from "@/hooks/useIsElementVisible";
 import { SkillSectionsInterface } from "../skills";
 import { SkillItem } from "./SkillItem";
 import { SkillSection, SkillTitle, SkillItemSection, SkillItemWrapper } from "./styles";
 
 export const SkillItemsSection = ({ title, data }: SkillSectionsInterface) => {
     const skillsSectionRef = createRef<HTMLDivElement>();
-    const isSkillSectionVisible = useIsComponentVisible(skillsSectionRef);
+    const isSkillSectionVisible = useIsElementVisible(skillsSectionRef);
 
     return (
         <SkillSection ref={skillsSectionRef}>

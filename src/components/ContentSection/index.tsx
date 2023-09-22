@@ -1,6 +1,6 @@
 import { createRef, useMemo, createContext, useEffect, useState, Fragment, useContext } from 'react';
 
-import { useIsComponentVisible } from '@/hooks/useIsComponentVisible';
+import { useIsElementVisible } from '@/hooks/useIsElementVisible';
 import { ProviderProps } from '../../../@types';
 import { StyledContentSection, VisibilityWrapper, RefWrapper } from './styles';
 
@@ -24,7 +24,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchor
     const [currentSection, setCurrentSection] = useState<SectionId>('home');
 
     const wrapperRef = createRef<HTMLDivElement>();
-    const isVisible = useIsComponentVisible(wrapperRef);
+    const isVisible = useIsElementVisible(wrapperRef);
 
     const renderChildren = useMemo(() => {
         if (useVisibility) {
@@ -43,14 +43,7 @@ export const ContentSection: React.FC<ContentSectionProps> = ({ children, anchor
         <ContentSectionContext.Provider value={{ isVisible, currentSection }}>
             <StyledContentSection id={anchorId}>
                 <RefWrapper ref={wrapperRef}>
-                    <ContentContextConsumer>
-                        {({ isVisible }) => (
-                            <Fragment>
-                                {isVisible}
-                                {renderChildren}
-                            </Fragment>
-                        )}
-                    </ContentContextConsumer>
+                    {renderChildren}
                 </RefWrapper>
             </StyledContentSection>
         </ContentSectionContext.Provider>
