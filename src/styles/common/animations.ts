@@ -8,7 +8,7 @@ export const fadeInAnimation = keyframes`
 export const buildFadeIn = (startDelay?: number) => {
     return css`
         opacity: 0;
-        animation: ${fadeInAnimation} 1s ease;
+        animation: ${fadeInAnimation} 0.5s ease;
         animation-delay: ${startDelay ?? 0}s;
         animation-fill-mode: forwards;
     `;

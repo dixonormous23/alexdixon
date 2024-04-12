@@ -51,4 +51,12 @@ export const portfolio: PortfolioItemInterface[] = [
             NFT website built to allow users to mint a TreeRatz NFT.
         `
     },
+    {
+        image: '/portfolio/alchemenow.png',
+        title: 'AlcheME Now',
+        stack: ['nextjs', 'ts', 'styled-components', 'graphql'],
+        shortDescription: `
+            Website developed for client to provide paid communication from advisor to client.
+        `
+    },
 ];

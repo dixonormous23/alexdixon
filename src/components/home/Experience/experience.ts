@@ -9,14 +9,14 @@ export interface ExperienceItemInterface {
 
 export const experienceItems: ExperienceItemInterface[] = [
     {
-        jobTitle: 'Frontend Software Developer',
+        jobTitle: 'Senior Software Developer',
         companyName: 'CBT Nuggets',
         image: '/experience/cbtnuggets.png',
         timePeriod: 'Feb 2020 - Present',
         location: 'Bend, OR | Remote',
         jobDescription: `
             Implemented clean, scalable user features, landing pages and internal tools utilizing ReactJS and TypeScript.
-            Integrated CMS platforms to allow for design and marketing to create and publish content with no developer blocking time.
+            Integrated CMS platforms to allow for design and marketing to create and publish content with little to no developer blocking time.
             Worked on multiple software projects simultaneously while participating in the full software development lifecycle from design, implementation to deployment.
         `
     },
