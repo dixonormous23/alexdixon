@@ -10,7 +10,7 @@ export const StyledTypewriterText = styled.span`
     max-width: 50%;
     line-height: 3rem;
     font-size: 2rem;
-    min-height: 250px;
+    min-height: 180px;
 
     small {
         animation: ${blinkAnimation} 1s linear infinite;
@@ -20,6 +20,5 @@ export const StyledTypewriterText = styled.span`
     ${breakpoint('mobile')} {
         max-width: unset;
         font-size: 1.4rem !important;
-        min-height: 215px;
     }
 `;

@@ -8,7 +8,8 @@ const SocialLinksWrapper = styled.div`
     display: flex;
     max-width: 150px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1rem;
     margin: 2rem 0;
 `;
 
@@ -22,9 +23,6 @@ export const SocialLinks = (): React.ReactElement => {
             </SocialLinkAnchor>
             <SocialLinkAnchor href={GITHUB_LINK} target="_blank">
                 <Icon variant="github" />
-            </SocialLinkAnchor>
-            <SocialLinkAnchor href={LINKEDIN_LINK} target="_blank">
-                <Icon variant="linked-in" />
             </SocialLinkAnchor>
         </SocialLinksWrapper>
     );
